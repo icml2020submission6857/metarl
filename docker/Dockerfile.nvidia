@@ -1,0 +1,5 @@
+ARG PARENT_IMAGE=icml2020submission6857/metarl-base
+FROM $PARENT_IMAGE
+
+# Ready, set, go.
+ENTRYPOINT ["docker/entrypoint-runtime.sh"]

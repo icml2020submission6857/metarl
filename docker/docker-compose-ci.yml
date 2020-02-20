@@ -1,0 +1,27 @@
+version: '2.2'
+services:
+  metarl-base:
+    build:
+      cache_from:
+        - icml2020submission6857/metarl-ci:latest
+      context: ../
+      dockerfile: docker/Dockerfile.base.18.04
+    image: icml2020submission6857/metarl-base
+  metarl-ci-no-files:
+    build:
+      cache_from:
+        - icml2020submission6857/metarl-ci:latest
+      context: ../
+      dockerfile: docker/Dockerfile.headless
+      args:
+        - PARENT_IMAGE=icml2020submission6857/metarl-base
+    image: icml2020submission6857/metarl-ci-no-files
+  metarl-ci:
+    build:
+      cache_from:
+        - icml2020submission6857/metarl-ci:latest
+      context: ../
+      dockerfile: docker/Dockerfile.runtime
+      args:
+        - PARENT_IMAGE=icml2020submission6857/metarl-ci-no-files
+    image: ${TAG}
