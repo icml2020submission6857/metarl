@@ -25,7 +25,7 @@ REQUIRED = [
     'pyglet<1.4.0,>=1.3.0',
     'pyprind',
     'python-dateutil',
-    'torch==1.3.0',
+    'torch==2.2.0',
     'ray',
     'scikit-image',
     'scipy',
